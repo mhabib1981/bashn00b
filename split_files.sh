@@ -1,4 +1,4 @@
-##Created By Mohammed, Mohammed Habeb Abdul Husain From GSOC Malaysia
+##Created By Mohammed Habib
 #!/bin/bash
 
 #DEFINE PATHs
