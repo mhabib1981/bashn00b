@@ -1,6 +1,7 @@
 #!/bin/bash
-for i in $(tshark -r http_utf8_directory_traversal_281014.pcap -Y http.request.uri -T fields -e tcp.stream);
-do tshark -r http_utf8_directory_traversal_281014.pcap -2 tcp.stream eq $i and frame contains "HTTP" >> $(pwd)/http_utf8_directory_traversal_281014.data;
+file='SQLmap_full_1m_020415.pcap'
+for i in $(tshark -r $file -Y http.request.uri -T fields -e tcp.stream);
+do tshark -r $file -2 tcp.stream eq $i and frame contains "HTTP" >> $(pwd)/$file.data;
 done
 
-cat http_utf8_directory_traversal_281014.data | awk -F" " '{print $5,$9}' | tr -d " " > http_utf8_directory_traversal_281014.urls
+cat $file.data | awk -F" " '{print $5,$9}' | tr -d " " > $file.urls
